@@ -12,8 +12,8 @@ Code supplement: Mapping small landscape features in agricultural lands using CN
 - Use the stored weights (*.pt) in testing and inference steps
 - Use the training logs in csv to plot the model behavior during training
 ### Model testing
-- Run `inference/test_inference.py` on a single test site image (e.g. 5x5km2) to obtain probability prediction at test-site level
-- Calculate AUC/ROC to define optimal probability threshold and accuracy metrics with `inference/test_accuracy.py`.
+- Run `evaluation/test_inference.py` on one or more large images (e.g. 5x5km2) to obtain mosaicked probability prediction raster(s)
+- Calculate AUC/ROC to define optimal probability threshold and accuracy metrics with `evaluation/test_accuracy.py`.
 ### Inference on mosaic
 - Run `inference/patches_inference` to obtain probability prediction at patches level
 - Batch resample each probability patch into coarser resolution virtual rasters (vrt) with `inference/resample_patches.sh`
