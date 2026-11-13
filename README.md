@@ -35,13 +35,13 @@ The current practice of creating small landscape feature (SLF) datasets is the m
 ## Usage
 ### Model training
 - Specify input data and hyperparameters in `training/train.py` and run
-- Use the training logs (*.csv) to plot the model behavior during training with `notebook/plot_loss.ipynb`
+- Use the training logs (*.csv) to plot the model behavior during training with `training/plot_loss_f1.py`
 ### Model testing
-- Run `evaluation/test_inference.py` on one or more large images (e.g. 5x5km2) to obtain mosaicked probability prediction raster(s)
+- Run `evaluation/test_inference.py` on one or more large images (e.g. 5 x 5 km²) to obtain mosaicked probability prediction raster(s)
 - Calculate AUC/ROC to define optimal probability threshold and accuracy metrics with `evaluation/test_accuracy.py`.
 ### Inference on mosaic
-- Run `inference/inference_patches.py` to obtain probability prediction at patch level
-- Batch resample each probability patch into coarser resolution virtual rasters (vrt) with `inference/resample_patches.sh`
+- Run `inference/inference_patches.py` to obtain probability prediction at patch level (500 x 500 px)
+- Batch resample each probability patch into coarser resolution virtual rasters (vrt) with `inference/resample_patches.sh` (e.g. from 0.25 m to 1 m GSD)
 - Group each vrt into processing tiles using `inference/group_patches_to_tiles.py`.
 - Run `inference/mosaic_tile.py` to create a mosaic based on patches
 ### Post-processing
